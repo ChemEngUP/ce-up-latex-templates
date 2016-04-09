@@ -1,0 +1,146 @@
+% Chemical Engineering @ UP Report style
+% Author: Carl Sandrock
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{upreport}[2016/04/08 v0.1 University of Pretoria report style]
+
+% Package includes
+
+% Font encoding and changing
+%\usepackage{pandora} % optima pandora times
+\usepackage[iso,english]{isodate}
+
+\usepackage{setspace}
+  \onehalfspacing
+
+\usepackage[margin=1in]{geometry}
+
+\usepackage[longnamesfirst]{natbib}
+  \bibpunct[: ]{(}{)}{;}{a}{,}{,} 
+
+\usepackage{graphicx}
+% Typeset numbers with fancynum with spaces (thinspaces) for thousands seperators 
+% and commas for decimals (french)
+\usepackage[french, thinspaces]{fancynum}
+%\usepackage[english, tight]{fancynum}
+
+% Typeset units correctly.  Default tight spacing inserts halfword
+% space between number and unit.  Use loose for full word.
+\usepackage{siunitx}
+
+% Advanced mathematics
+\usepackage{amsmath}
+% \usepackage{amssymb}
+
+\usepackage{color}
+
+\usepackage{subfigure}
+
+% Display captions with the Figure text in boldface (bf), hanging indents and 
+% one size smaller than the rest of the text
+\usepackage[hang, bf, small]{caption}
+
+% There's a subtle interaction between hyperref and algorithm included below, 
+% which can be resolved by including float before hyperref and algorithm after it.
+\usepackage{float}
+
+% Enable hyperlink references in PDF file
+\usepackage[plainpages=false, pdfpagelabels]{hyperref}
+
+% enable typesetting of algorithms
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+%\renewcommand{\Return}[1]{\State \textbf{return}~#1}
+
+% For listing of code in the document
+\usepackage{listings}
+
+\usepackage{longtable}
+
+% For nicer table rules 
+\usepackage{booktabs}
+
+% Set the length of space above \toprule (to stop the table head from colliding with the table):
+\setlength{\abovetopsep}{1em}
+
+%\usepackage{fancyhdr}
+
+% Nomenclature list
+\usepackage{nomencl}
+\makenomenclature % required by nomencl -- used to be \makeglossary
+% For indexing of document
+
+\usepackage{makeidx}
+\makeindex % required by makeidx
+
+% For rotated figures and tables
+\usepackage{rotating}
+\usepackage{pdflscape}
+
+% Enable the default extensions for PDFTeX
+%\DeclareGraphicsExtensions{.jpg, .pdf, .mps, .png}
+% Define a default graphics path as graph
+%\graphicspath{{graph/}}
+
+% commands 
+\newcommand*{\subject}[1]{\gdef\@subject{#1}}
+\newcommand*{\studentnumber}[1]{\gdef\@studentnumber{#1}}
+
+%       graphics
+%   Use these widths for full and halfwidth figures.  
+%       Renew them in your document to change them
+\newcommand{\fullwidth}{0.8\textwidth}
+\newcommand{\halfwidth}{0.4\textwidth}
+
+\newcommand\dd{\mathrm{d}}
+% Typeset a differential fraction (dx/dy)
+\newcommand\dxdy[2]{\frac{\dd#1}{\dd#2}}
+
+% Typeset a vector variable 
+\newcommand\vect[1]{\ensuremath{\boldsymbol{#1}}} %(upright and bold)
+
+% Make references heading numbered
+\renewcommand{\refname}{\section{References}\label{sec:references}} 
+
+% redefine maketitle to use a default logo and make the text look prettier
+\renewcommand{\maketitle}{
+  \begingroup
+  % Avoid duplicate page names:
+  \renewcommand{\thepage}{Title 1}
+  \begin{titlepage}
+    \begin{center}%
+      \null
+      \vfill
+      {\huge\textbf{\@title} \par}%
+      \vskip 3em%
+      \@author
+    \end{center}\par
+    \vfill
+    \flushright{\@subject \par \today \par}
+  \end{titlepage}
+  \endgroup
+}
+
+\newcommand{\makecoverpage}{
+  \begingroup
+  % Avoid duplicate page names:
+  \renewcommand{\thepage}{coverpage}
+  \begin{titlepage}
+    \newpage%
+    \null\vfill%
+    \begin{center}%
+      \textbf{\LARGE \@title}%
+      \vfill%
+      \textbf{\large \@author}\\%
+      \textbf{\large \@studentnumber}%
+      \vskip 3em
+      Department of Chemical Engineering\\
+      University of Pretoria
+    \end{center}
+    \vfill
+    \flushright{\@subject \par \today}\par
+  \end{titlepage}
+  \endgroup
+}
+
+\newcommand{\thetitle}{\@title}

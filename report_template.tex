@@ -1,0 +1,140 @@
+\documentclass[a4paper,12pt]{article}
+%\RequirePackage[l2tabu,orthodox]{nag}
+
+\usepackage{upreport}
+
+\title{Sample report}
+\author{Carl Sandrock}
+\studentnumber{1234567}
+\subject{CXX XXX}
+\date{\today}
+
+\begin{document}
+\maketitle
+\makecoverpage
+
+\pagestyle{plain}
+\thispagestyle{plain}
+\pagenumbering{roman}
+
+\begin{center}
+\LARGE\textbf{\thetitle}
+\end{center}
+
+\section*{Synopsis}
+This is the synopsis
+
+\newpage
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+%\chapter*{Nomenclature}
+\printnomenclature
+\newpage
+
+\pagestyle{plain}
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\section{Introduction}
+Background, problem statement, purpose, method, scope
+
+\section{Theory}
+Summary of the relevant theory, including ample references. You can refer to citations like~\citep{bruckmanmandersloot} for an inline reference or \citep{bruckmanmandersloot} to get the citation in parentheses. You can also cite multiple authors~\citep{mandersloot,bruckmanmandersloot}
+
+The height $h$ was measured as a function of time $t$.  The relationship between $h$ and $t$ was found to be 
+\begin{equation}
+  \label{eq:commaexample}
+  h(t) = h_0 - \lambda t
+\end{equation}
+where $h_0$ is the initial height and $\lambda$ is an experimentally
+determined constant.  It was also determined that the velocity
+$\mathbf{v}$ was a function of the position $\mathbf{x}$ given by
+$f(\mathbf{v}) = \beta \mathbf{x} + \sin(\alpha)$ and that in general
+$h_{\mathrm{max}} \leq 5$ m.
+
+Dynamic analysis showed that the system could be represented by
+Equation~\ref{eq:matexample}
+\begin{equation}
+  \label{eq:matexample}
+  G(s) = \frac{1}{s+1}\left [ 
+    \begin{array}{cc} 
+      3 & \log{b} \\ 
+      2 & \num{1.1} 
+    \end{array} \right ]
+\end{equation}
+
+Therefore, the model was revised to
+\begin{equation}
+  \frac{\partial f}{\partial t} = 5t + g(t) \qquad \frac{\mathrm{d} g}{\mathrm{d} t} = t + f(t) \qquad A = \int_a^b f(t) \mathrm{d} t
+\end{equation}
+
+
+\section{Experimental}
+Apparatus, planning and methods
+
+
+\section{Results and Discussion}
+Supporting evidence, most important results first. Use graphs and tables where possible. Explain the observed correlations between variables.
+
+You may want to use a table like Table~\ref{tab:tabexample}, or figures like Figure~\ref{fig:samplefigure}
+
+\begin{table}[htbp]
+  \centering
+  \caption[Short caption for table of tables]{Example of a table (adapted from \citet{fear})}
+  \label{tab:tabexample}
+  \begin{minipage}{0.5\textwidth}
+    \begin{centering}
+      \begin{tabular}{@{}llr@{}} \toprule 
+        \multicolumn{2}{c}{Item}                                               \\ 
+        \cmidrule(r){1-2} 
+        Animal                    & Description & Price\textsuperscript{a} (R) \\ 
+        \midrule 
+        Gnat                      & per gram    & \num{13.65}                  \\ 
+                                  & each        & \num{0.01}                   \\ 
+        Parrot\textsuperscript{b} & stuffed     & \num{92.50}                  \\ 
+        Emu                       & stuffed     & \num{33.33}                  \\ 
+        Armadillo                 & frozen      & \num{8.99}                   \\ 
+        \bottomrule 
+      \end{tabular}                                                            \\
+    \end{centering} 
+    \vspace{1em}
+    \textsuperscript{a} As of 2004                                             \\
+    \textsuperscript{b} Norwegian blue only
+  \end{minipage}
+\end{table}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\halfwidth]{samplefigure.pdf}
+  \caption[Short caption which will be in the table of figures]{Example of a figure.  Note that the line types are easy to
+    distinguish without a colour display.  Include a citation in the caption if the figure is from referred source}
+  \label{fig:samplefigure}
+\end{figure}
+
+Numbers are shown with a either a decimal comma \emph{or} a decimal point, spaces between thousands and $\times 10^x$ notation rather than computer notation (\num{12345.12345e-12}).
+
+SI units should be favoured except where conversion would be
+uncomfortable (refer to a \SI{20}{psi} pressure limit rather than
+\SI{137.895}{\kilo\pascal}).
+Use standard
+SI prefixes instead of scientific notation unless a large variation in
+numbers occurs (use \SI{1}{\nano\meter} instead of \SI{1e-9}{\meter}).
+
+\section{Conclusions and Recommendations}
+Main findings
+No new information
+
+\bibliography{report}
+\bibliographystyle{chemeng}
+
+\appendix
+
+\section{First appendix}
+Include only if necessary. Not a place to dump raw figures or calculations
+
+\end{document}
+
