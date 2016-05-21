@@ -9,6 +9,14 @@
 \subject{CXX XXX}
 \date{\today}
 
+%Nomenclature unit command
+\newcommand{\nomunit}[1]{%
+\renewcommand{\nometryend}{\hspace*{\fill}#1}}
+
+% Create a custom user command or run the following 
+%  makeindex %.nlo -s nomencl.ist -o %.nls
+% execute this command after compiling your file once, then compile a second time to generate a nomenclature table
+
 \begin{document}
 \maketitle
 \makecoverpage
@@ -22,8 +30,9 @@
 \end{center}
 
 \section*{Synopsis}
+\addcontentsline{toc}{section}{Synopysis}%
 This is the synopsis
-
+\setcounter{page}{3}
 \newpage
 \tableofcontents
 \newpage
@@ -45,7 +54,7 @@ Background, problem statement, purpose, method, scope
 \section{Theory}
 Summary of the relevant theory, including ample references. You can refer to citations like~\citep{bruckmanmandersloot} for an inline reference or \citep{bruckmanmandersloot} to get the citation in parentheses. You can also cite multiple authors~\citep{mandersloot,bruckmanmandersloot}
 
-The height $h$ was measured as a function of time $t$.  The relationship between $h$ and $t$ was found to be 
+The height $h$ \nomenclature{h}{Height \nomunit{m}} was measured as a function of time $t$ \nomenclature{t}{time \nomunit{s}}.  The relationship between $h$ and $t$ was found to be 
 \begin{equation}
   \label{eq:commaexample}
   h(t) = h_0 - \lambda t
