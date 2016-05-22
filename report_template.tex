@@ -18,35 +18,7 @@
 % execute this command after compiling your file once, then compile a second time to generate a nomenclature table
 
 \begin{document}
-\maketitle
-\makecoverpage
-
-\pagestyle{plain}
-\thispagestyle{plain}
-\pagenumbering{roman}
-
-\begin{center}
-\LARGE\textbf{\thetitle}
-\end{center}
-
-\section*{Synopsis}
-\addcontentsline{toc}{section}{Synopysis}%
-This is the synopsis
-\setcounter{page}{3}
-\newpage
-\tableofcontents
-\newpage
-\listoffigures
-\newpage
-\listoftables
-\newpage
-%\chapter*{Nomenclature}
-\printnomenclature
-\newpage
-
-\pagestyle{plain}
-\setcounter{page}{1}
-\pagenumbering{arabic}
+\input{frontmatter}
 
 \section{Introduction}
 Background, problem statement, purpose, method, scope
@@ -89,12 +61,30 @@ Apparatus, planning and methods
 \section{Results and Discussion}
 Supporting evidence, most important results first. Use graphs and tables where possible. Explain the observed correlations between variables.
 
-You may want to use a table like Table~\ref{tab:tabexample}, or figures like Figure~\ref{fig:samplefigure}
+Prefer simple tables like Table~\ref{tab:simpletabexample} or may want to use a
+more complicated table like Table~\ref{tab:tabexample}.
+\begin{table}[htbp]
+  \centering
+  \caption{Example of a simple table}
+  \label{tab:simpletabexample}
+  \begin{tabular}{lll}
+    \toprule
+    Head 1 & Head 2& Head 3 \\
+    \midrule
+    Item 1 & value 1 & Value 2 \\
+    Item 2 & value 1 & Value 2 \\
+    Item 3 & value 1 & Value 2 \\
+    Item 4 & value 1 & Value 2 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \begin{table}[htbp]
   \centering
-  \caption[Short caption for table of tables]{Example of a table (adapted from \citet{fear})}
+  \caption[Short caption for table of tables]{Example of a complicated table (adapted from \citet{fear})}
   \label{tab:tabexample}
+  % This minipage is only necessary when you need footnotes. For most tables you
+  % can use the simple format.
   \begin{minipage}{0.5\textwidth}
     \begin{centering}
       \begin{tabular}{@{}llr@{}} \toprule 
@@ -116,9 +106,11 @@ You may want to use a table like Table~\ref{tab:tabexample}, or figures like Fig
   \end{minipage}
 \end{table}
 
+You may also use figures like Figure~\ref{fig:samplefigure}
+
 \begin{figure}[htbp]
   \centering
-  \includegraphics[width=\halfwidth]{samplefigure.pdf}
+  \includegraphics[width=\fullwidth]{samplefigure.pdf}
   \caption[Short caption which will be in the table of figures]{Example of a figure.  Note that the line types are easy to
     distinguish without a colour display.  Include a citation in the caption if the figure is from referred source}
   \label{fig:samplefigure}
