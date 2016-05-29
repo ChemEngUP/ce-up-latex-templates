@@ -140,8 +140,12 @@ No new information
 \bibliographystyle{chemeng}
 
 \appendix
-
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thepage}{\thesection.\arabic{page}}
 \section{First appendix}
+\setcounter{figure}{0}
+\setcounter{page}{1}
+% Renew figure and page counter per Appendix using the commands above
 Include only if necessary. Not a place to dump raw figures or calculations
 
 \end{document}
