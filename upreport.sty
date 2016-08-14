@@ -8,21 +8,33 @@
 
 % Font encoding and changing
 %\usepackage{pandora} % optima pandora times
+
+% count the totals for figures and tables in order to show the list of figures
+% and tables only if they are there.
+\usepackage[figure,table]{totalcount}
+
+% Use ISO date format
 \usepackage[iso,english]{isodate}
 
+% spacing
 \usepackage{setspace}
   \onehalfspacing
 
+% Page margins
 \usepackage[margin=1in]{geometry}
 
-\usepackage[longnamesfirst]{natbib}
-  \bibpunct[: ]{(}{)}{;}{a}{,}{,} 
+%allow inverted commas in the bibliography
+\usepackage{csquotes}
 
+% bibliographical typesetting
+\usepackage[style=authoryear, backend=biber, natbib=true]{biblatex}
+%natbib=true allows the natbib \cite syntax to be used, this should be used for existing files only
+% \parencite replaces \citep
+% \textcite replaces \citet
+% for bib files: Journaltitle replaces Journal, Location replaces Address
+
+% Graphics
 \usepackage{graphicx}
-% Typeset numbers with fancynum with spaces (thinspaces) for thousands seperators 
-% and commas for decimals (french)
-\usepackage[french, thinspaces]{fancynum}
-%\usepackage[english, tight]{fancynum}
 
 % Typeset units correctly.  Default tight spacing inserts halfword
 % space between number and unit.  Use loose for full word.
@@ -30,7 +42,6 @@
 
 % Advanced mathematics
 \usepackage{amsmath}
-% \usepackage{amssymb}
 
 \usepackage{color}
 
@@ -55,6 +66,7 @@
 % For listing of code in the document
 \usepackage{listings}
 
+% For tables which go to a next page
 \usepackage{longtable}
 
 % For nicer table rules 
@@ -63,13 +75,12 @@
 % Set the length of space above \toprule (to stop the table head from colliding with the table):
 \setlength{\abovetopsep}{1em}
 
-%\usepackage{fancyhdr}
-
 % Nomenclature list
 \usepackage[intoc]{nomencl}
-\makenomenclature % required by nomencl -- used to be \makeglossary
-% For indexing of document
+% required by nomencl -- used to be \makeglossary
+\makenomenclature 
 
+% For indexing of document
 \usepackage{makeidx}
 \makeindex % required by makeidx
 
@@ -82,13 +93,13 @@
 % Define a default graphics path as graph
 %\graphicspath{{graph/}}
 
-% commands 
+% reserved commands for defining title page variables
 \newcommand*{\subject}[1]{\gdef\@subject{#1}}
 \newcommand*{\studentnumber}[1]{\gdef\@studentnumber{#1}}
 
-%       graphics
-%   Use these widths for full and halfwidth figures.  
-%       Renew them in your document to change them
+% graphics
+% Use these widths for full and halfwidth figures.  
+% Renew them in your document to change them
 \newcommand{\fullwidth}{0.8\textwidth}
 \newcommand{\halfwidth}{0.4\textwidth}
 
