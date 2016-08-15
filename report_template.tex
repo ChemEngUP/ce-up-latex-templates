@@ -9,7 +9,7 @@
 %\RequirePackage[l2tabu,orthodox]{nag}
 
 \usepackage{upreport}
-
+\addbibresource{report.bib}
 \title{Sample report}
 \author{Carl Sandrock}
 \studentnumber{1234567}
@@ -31,7 +31,7 @@
 Background, problem statement, purpose, method, scope
 
 \section{Theory}
-Summary of the relevant theory, including ample references. You can refer to citations like~\citep{bruckmanmandersloot} for an inline reference or \citep{bruckmanmandersloot} to get the citation in parentheses. You can also cite multiple authors~\citep{mandersloot,bruckmanmandersloot}
+Summary of the relevant theory, including ample references. You can refer to citations like~\textcite{bruckmanmandersloot} for an inline reference or \parencite{bruckmanmandersloot} to get the citation in parentheses. You can also cite multiple authors~\parencite{mandersloot,bruckmanmandersloot}
 
 The height $h$ \nomenclature{h}{Height \nomunit{m}} was measured as a function of time $t$ \nomenclature{t}{time \nomunit{s}}.  The relationship between $h$ and $t$ was found to be 
 \begin{equation}
@@ -88,7 +88,7 @@ more complicated table like Table~\ref{tab:tabexample}.
 
 \begin{table}[htbp]
   \centering
-  \caption[Short caption for table of tables]{Example of a complicated table (adapted from \citet{fear})}
+  \caption[Short caption for table of tables]{Example of a complicated table (adapted from \textcite{fear})}
   \label{tab:tabexample}
   % This minipage is only necessary when you need footnotes. For most tables you
   % can use the simple format.
@@ -136,9 +136,8 @@ numbers occurs (use \SI{1}{\nano\meter} instead of \SI{1e-9}{\meter}).
 Main findings
 No new information
 
-\bibliography{report}
-\bibliographystyle{chemeng}
 
+\printbibliography
 \appendix
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}
 \renewcommand{\thepage}{\thesection.\arabic{page}}

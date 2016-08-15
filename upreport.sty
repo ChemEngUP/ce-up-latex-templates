@@ -23,9 +23,15 @@
 % Page margins
 \usepackage[margin=1in]{geometry}
 
+%allow inverted commas in the bibliography
+\usepackage{csquotes}
+
 % bibliographical typesetting
-\usepackage[longnamesfirst]{natbib}
-  \bibpunct[: ]{(}{)}{;}{a}{,}{,} 
+\usepackage[style=authoryear, backend=biber, natbib=true]{biblatex}
+%natbib=true allows the natbib \cite syntax to be used, this should be used for existing files only
+% \parencite replaces \citep
+% \textcite replaces \citet
+% for bib files: Journaltitle replaces Journal, Location replaces Address
 
 % Graphics
 \usepackage{graphicx}
