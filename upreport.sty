@@ -27,11 +27,17 @@
 \usepackage{csquotes}
 
 % bibliographical typesetting
-\usepackage[style=authoryear, backend=biber, natbib=true]{biblatex}
+\usepackage[style=authoryear, backend=biber, maxbibnames=99, citetracker=true, maxcitenames=1, natbib=true]{biblatex}
+
 %natbib=true allows the natbib \cite syntax to be used, this should be used for existing files only
 % \parencite replaces \citep
 % \textcite replaces \citet
 % for bib files: Journaltitle replaces Journal, Location replaces Address
+
+\setlength\bibitemsep{\baselineskip}
+%Adds parapgraph spacing between references in the reference list
+\AtEveryCitekey{\ifciteseen{}{\defcounter{maxnames}{99}}}
+%Fixes first time citations to full author list with all further citations in et. al. form
 
 % Graphics
 \usepackage{graphicx}
