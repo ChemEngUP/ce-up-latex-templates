@@ -36,8 +36,18 @@
 
 \setlength\bibitemsep{\baselineskip}
 %Adds parapgraph spacing between references in the reference list
-\AtEveryCitekey{\ifciteseen{}{\defcounter{maxnames}{99}}}
+\AtEveryCitekey{\ifciteseen{}{\defcounter{maxnames}{3}}}
 %Fixes first time citations to full author list with all further citations in et. al. form
+\renewcommand*{\finalnamedelim}{%
+	\ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+	\addcomma\addspace\&\space}
+%Replaces all "and" used with "&" in the citations and the bibliography
+\AtBeginBibliography{%
+	\renewcommand*{\finalnamedelim}{%
+		\ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
+		\addspace\bibstring{and}\space}%
+}
+%Replaces all "&" uses with "and" in the bibliography only
 
 % Graphics
 \usepackage{graphicx}
