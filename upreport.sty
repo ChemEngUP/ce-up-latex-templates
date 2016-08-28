@@ -23,31 +23,21 @@
 % Page margins
 \usepackage[margin=1in]{geometry}
 
-%allow inverted commas in the bibliography
+% Allow inverted commas in the bibliography
 \usepackage{csquotes}
 
 % bibliographical typesetting
-\usepackage[style=authoryear, backend=biber, maxbibnames=99, citetracker=true, maxcitenames=1, natbib=true]{biblatex}
-
-%natbib=true allows the natbib \cite syntax to be used, this should be used for existing files only
+\usepackage[style=authoryear, dashed=false, backend=biber, maxbibnames=99,
+			 citetracker=true, maxcitenames=2, natbib=true, giveninits=true, terseinits=true]{biblatex}
+% natbib=true allows the natbib \cite syntax to be used, this should be used for existing files only
 % \parencite replaces \citep
 % \textcite replaces \citet
 % for bib files: Journaltitle replaces Journal, Location replaces Address
 
 \setlength\bibitemsep{\baselineskip}
-%Adds parapgraph spacing between references in the reference list
-\AtEveryCitekey{\ifciteseen{}{\defcounter{maxnames}{3}}}
-%Fixes first time citations to full author list with all further citations in et. al. form
-\renewcommand*{\finalnamedelim}{%
-	\ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
-	\addcomma\addspace\&\space}
-%Replaces all "and" used with "&" in the citations and the bibliography
-\AtBeginBibliography{%
-	\renewcommand*{\finalnamedelim}{%
-		\ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}%
-		\addspace\bibstring{and}\space}%
-}
-%Replaces all "&" uses with "and" in the bibliography only
+% Adds parapgraph spacing between references in the reference list
+\setlength{\bibhang}{0in}
+% Removes the paragraph indent in bibliography entries 
 
 % Graphics
 \usepackage{graphicx}
