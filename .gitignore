@@ -9,6 +9,10 @@
 *.out
 *.pdf
 *.toc
+*.bcf
+*.ilg
+*.ind
+*.nls
+*.run.xml
+*.synctex.gz
 *~
-
-
