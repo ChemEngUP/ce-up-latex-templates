@@ -69,19 +69,21 @@ Apparatus, planning and methods
 Supporting evidence, most important results first. Use graphs and tables where possible. Explain the observed correlations between variables.
 
 Prefer simple tables like Table~\ref{tab:simpletabexample} or may want to use a
-more complicated table like Table~\ref{tab:tabexample}.
+more complicated table like Table~\ref{tab:tabexample}. Notice that the decimals
+of the right hand column are aligned using the \texttt{S} column type which
+comes from the siunitx package.
 \begin{table}[htbp]
   \centering
   \caption{Example of a simple table}
   \label{tab:simpletabexample}
-  \begin{tabular}{lll}
+  \begin{tabular}{llS}
     \toprule
-    Head 1 & Head 2& Head 3 \\
+    Head 1 & Head 2 & {Head 3} \\
     \midrule
-    Item 1 & value 1 & Value 2 \\
-    Item 2 & value 1 & Value 2 \\
-    Item 3 & value 1 & Value 2 \\
-    Item 4 & value 1 & Value 2 \\
+    Item 1 & value 1 & 12.3 \\
+    Item 2 & value 1 & 1.2 \\
+    Item 3 & value 1 & 4.5 \\
+    Item 4 & value 1 & 0.053 \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -94,16 +96,16 @@ more complicated table like Table~\ref{tab:tabexample}.
   % can use the simple format.
   \begin{minipage}{0.5\textwidth}
     \begin{centering}
-      \begin{tabular}{@{}llr@{}} \toprule 
+      \begin{tabular}{@{}llS@{}} \toprule 
         \multicolumn{2}{c}{Item}                                               \\ 
         \cmidrule(r){1-2} 
-        Animal                    & Description & Price\textsuperscript{a} (R) \\ 
+        Animal                    & Description & {Price\textsuperscript{a} (R)} \\ 
         \midrule 
-        Gnat                      & per gram    & \num{13.65}                  \\ 
-                                  & each        & \num{0.01}                   \\ 
-        Parrot\textsuperscript{b} & stuffed     & \num{92.50}                  \\ 
-        Emu                       & stuffed     & \num{33.33}                  \\ 
-        Armadillo                 & frozen      & \num{8.99}                   \\ 
+        Gnat                      & per gram    & 13.65                  \\ 
+                                  & each        & 0.01                   \\ 
+        Parrot\textsuperscript{b} & stuffed     & 92.50                  \\ 
+        Emu                       & stuffed     & 33.33                  \\ 
+        Armadillo                 & frozen      & 8.99                   \\ 
         \bottomrule 
       \end{tabular}                                                            \\
     \end{centering} 
@@ -123,7 +125,7 @@ You may also use figures like Figure~\ref{fig:samplefigure}
   \label{fig:samplefigure}
 \end{figure}
 
-Numbers are shown with a either a decimal comma \emph{or} a decimal point, spaces between thousands and $\times 10^x$ notation rather than computer notation (\num{12345.12345e-12}).
+Numbers are shown with a decimal point, spaces between thousands and $\times 10^x$ notation rather than computer notation (\num{12345.12345e-12}).
 
 SI units should be favoured except where conversion would be
 uncomfortable (refer to a \SI{20}{psi} pressure limit rather than
