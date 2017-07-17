@@ -4,7 +4,7 @@ import numpy
 x = numpy.linspace(0, 10)
 modelA = 100 - x**2
 modelB = 110 - 10*x
-ydata = modelA + numpy.random.rand(len(x))*10
+ydata = modelA + numpy.random.randn(len(x))*10
 
 plt.plot(x, modelA, 'k-', label='Model A')
 plt.plot(x, modelB, 'k--', label='Model B')

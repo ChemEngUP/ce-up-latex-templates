@@ -2,12 +2,19 @@
 % Author: Carl Sandrock
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{upreport}[2016/04/08 v0.1 University of Pretoria report style]
+\ProvidesPackage{upreport}[2017/06/24 v0.11 University of Pretoria report style]
 
 % Package includes
 
 % Font encoding and changing
 %\usepackage{pandora} % optima pandora times
+
+% Typeset chemical symbols correctly
+\usepackage[version=4]{mhchem}
+
+% AIEEE: screw up spacing to make Grimsehl happy
+\setlength{\parindent}{0in}
+\setlength{\parskip}{2.5ex plus 3pt minus 2pt}
 
 % count the totals for figures and tables in order to show the list of figures
 % and tables only if they are there.
@@ -37,7 +44,7 @@
 \setlength\bibitemsep{\baselineskip}
 % Adds parapgraph spacing between references in the reference list
 \setlength{\bibhang}{0in}
-% Removes the paragraph indent in bibliography entries 
+% Removes the paragraph indent in bibliography entries
 
 % Graphics
 \usepackage{graphicx}
@@ -53,11 +60,11 @@
 
 \usepackage{subfigure}
 
-% Display captions with the Figure text in boldface (bf), hanging indents and 
+% Display captions with the Figure text in boldface (bf), hanging indents and
 % one size smaller than the rest of the text
 \usepackage[hang, bf, small]{caption}
 
-% There's a subtle interaction between hyperref and algorithm included below, 
+% There's a subtle interaction between hyperref and algorithm included below,
 % which can be resolved by including float before hyperref and algorithm after it.
 \usepackage{float}
 
@@ -75,7 +82,7 @@
 % For tables which go to a next page
 \usepackage{longtable}
 
-% For nicer table rules 
+% For nicer table rules
 \usepackage{booktabs}
 
 % Set the length of space above \toprule (to stop the table head from colliding with the table):
@@ -84,7 +91,7 @@
 % Nomenclature list
 \usepackage[intoc]{nomencl}
 % required by nomencl -- used to be \makeglossary
-\makenomenclature 
+\makenomenclature
 
 % For indexing of document
 \usepackage{makeidx}
@@ -104,7 +111,7 @@
 \newcommand*{\studentnumber}[1]{\gdef\@studentnumber{#1}}
 
 % graphics
-% Use these widths for full and halfwidth figures.  
+% Use these widths for full and halfwidth figures.
 % Renew them in your document to change them
 \newcommand{\fullwidth}{0.8\textwidth}
 \newcommand{\halfwidth}{0.4\textwidth}
@@ -113,11 +120,11 @@
 % Typeset a differential fraction (dx/dy)
 \newcommand\dxdy[2]{\frac{\dd#1}{\dd#2}}
 
-% Typeset a vector variable 
+% Typeset a vector variable
 \newcommand\vect[1]{\ensuremath{\boldsymbol{#1}}} %(upright and bold)
 
 % Make references heading numbered
-\renewcommand{\refname}{\section{References}\label{sec:references}} 
+\renewcommand{\refname}{\section{References}\label{sec:references}}
 
 % redefine maketitle to use a default logo and make the text look prettier
 \renewcommand{\maketitle}{
