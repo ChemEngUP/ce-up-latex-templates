@@ -6,7 +6,7 @@ To compile the report template document you need to run `samplefigure.py` to cre
 A full compile of the sample document involves running
 
     pdflatex report_template
-    bibtex report_template
+    biber report_template
     makeindex report_template.nlo -s nomencl.ist -o report_template.nls
     pdflatex report_template
     pdflatex report_template
