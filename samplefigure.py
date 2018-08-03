@@ -16,8 +16,8 @@ plt.figure(figsize=(5, 4))  # note figure size in inches
 plt.plot(x, modelA, 'k-', label='Model A')
 plt.plot(x, modelB, 'k--', label='Model B')
 plt.plot(x, ydata, 'b.', label='Experimental')
-plt.xlabel('Time (s)')
-plt.ylabel('Height (m)')
+plt.xlabel('Time / s')
+plt.ylabel('Height / m')
 plt.legend()
 # This ensures the bounding box is correct. If we don't call tight_layout
 # sometimes elements get cut off on the edges.
