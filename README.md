@@ -1,5 +1,4 @@
-Chemical Engineering @ UP LaTeX templates
------------------------------------------
+# Chemical Engineering @ UP LaTeX templates
 
 To compile the report template document you need to run `samplefigure.py` to create the `samplefigure.pdf` file.
 
@@ -14,3 +13,5 @@ A full compile of the sample document involves running
 The multiple runs of `pdflatex` is so that the page numbers and cross-references are handled correctly.
 
 You can also automate these tasks using [arara](https://github.com/cereda/arara) or `latexmk`. Use the tool which is already installed in your system.
+
+Always ensure that you are using the most recent version by downloading from [GitHub](https://github.com/ChemEngUP/ce-up-latex-templates/)
