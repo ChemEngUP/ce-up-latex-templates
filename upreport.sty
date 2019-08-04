@@ -2,7 +2,7 @@
 % Author: Carl Sandrock
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{upreport}[2017/06/24 v0.11 University of Pretoria report style]
+\ProvidesPackage{upreport}[2019/07/23 v0.12 University of Pretoria report style]
 
 % Package includes
 
@@ -58,11 +58,11 @@
 
 \usepackage{color}
 
-\usepackage{subfigure}
-
 % Display captions with the Figure text in boldface (bf), hanging indents and
 % one size smaller than the rest of the text
 \usepackage[hang, bf, small]{caption}
+
+\usepackage{subcaption}
 
 % There's a subtle interaction between hyperref and algorithm included below,
 % which can be resolved by including float before hyperref and algorithm after it.
