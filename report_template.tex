@@ -76,10 +76,8 @@ Apparatus, planning and methods
 \section{Results and Discussion}
 Supporting evidence, most important results first. Use graphs and tables where possible. Explain the observed correlations between variables.
 
-Prefer simple tables like Table~\ref{tab:simpletabexample}. In some cases you may want to use a
-more complicated table like Table~\ref{tab:tabexample}. Notice that the decimals
-of the right hand column are aligned using the \texttt{S} column type which
-comes from the siunitx package.
+\subsection{Tables}
+Prefer simple tables like Table~\ref{tab:simpletabexample}.
 \begin{table}[htbp]
   \centering
   \caption{Example of a simple table}
@@ -95,6 +93,10 @@ comes from the siunitx package.
     \bottomrule
   \end{tabular}
 \end{table}
+In some cases you may want to use a
+more complicated table like Table~\ref{tab:tabexample}. Notice that the decimals
+of the right hand column are aligned using the \texttt{S} column type which
+comes from the siunitx package.
 
 \begin{table}[htbp]
   \centering
@@ -123,71 +125,110 @@ comes from the siunitx package.
   \end{minipage}
 \end{table}
 
-You may also use figures like Figure~\ref{fig:samplefigure}
+Note that the \verb|\footnote| command doesn't work as one would like in
+tables. The source for this table includes a workaround.
 
-\begin{figure}[H]
+\subsection{Figures}
+The simplest form of a figure is shown in Figure~\ref{fig:samplefigure}.
+
+\begin{figure}[htbp]
   \centering
   % notice we specified the size of the figure in the Python file
-  \includegraphics{samplefigure.pdf}
+  \includegraphics{graph/samplefigure.pdf}
   \caption[Short caption which will be in the table of figures]{Example of a figure.  Note that the line types are easy to
     distinguish without a colour display.  Include a citation in the caption if the figure is from referred source. To update this figure, run samplefigure.py and recompile the document.}
   \label{fig:samplefigure}
 \end{figure}
 
-If you have multiple figures that need grouping together, then you may use figures like Figure~\ref{fig:subcaptionfigure}, and each subfigure can be referenced as Figure~\ref{fig:1b}. It is important to be aware that using subfigures inside \LaTeX will alter the scaling of the image, including the fontsizes, and therefore this should be accounted for while producing the graphs.
+An important thing to understand about graphics in \LaTeX\ is that it does
+not respect font size or line size specifications from the included graphics.
+Instead it sees an image as single unit which is all scaled together. You can
+see the difference between scaling a figure down inside \LaTeX\ and using a
+custom-build scaled down version in figure~\ref{fig:scalingexample}
 
-\begin{figure}[H]
-	\begin{subfigure}[b]{.5\textwidth}
-		\centering\includegraphics[width=\textwidth]{modelfigure_1p0.pdf}
-		\caption{Noise factor = 1.0}\label{fig:1a}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=3in]{graph/samplefigure.pdf}
+  \includegraphics{graph/samplefigure_halfsize.pdf}
+  \caption{Two graphics side by side. The one on the left is the same as
+    in Figure~\ref{fig:samplefigure}. Notice that the fonts are too small,
+    the lines are too thin, and the dots are too small.}
+  \label{fig:scalingexample}
+\end{figure}
+
+A common misunderstanding of this effect is that the font size is too small.
+Editors unfamiliar with \LaTeX\ will often simply ask for the font size to be
+bigger, but this does not address the other elements like the size of the lines,
+the size of dots and so on. To obtain regular results, the safest option is to
+specify the figure size in the software you are using to produce the figures.
+The samplefigure.py file included with this template shows how these figures
+were generated. Notice that the font size was not specified.
+
+If you have multiple figures that need to be grouped together, it is useful to
+make use of subfigures as shown in Figure~\ref{fig:subcaptionfigure}. Each
+subfigure can be referenced as Figure~\ref{fig:1b}.
+
+
+\begin{figure}[htbp]
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+    \includegraphics{graph/noise_001_model.pdf}
+		\caption{Noise factor = \num{1}}\label{fig:1a}
+	\end{subfigure}\hfill  
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+    \includegraphics{graph/noise_001_derivative.pdf}
+		\caption{Noise factor = \num{1}}\label{fig:1b}
 	\end{subfigure}\hfill
-	\begin{subfigure}[b]{.5\textwidth}
-		\centering\includegraphics[width=\textwidth]{differentialfigure_1p0.pdf}
-		\caption{Noise factor = 1.0}\label{fig:1b}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+    \includegraphics{graph/noise_010_model.pdf}
+		\caption{Noise factor = \num{10}}\label{fig:1c}
 	\end{subfigure}\hfill
-	\begin{subfigure}[b]{.5\textwidth}
-		\centering\includegraphics[width=\textwidth]{modelfigure_10.pdf}
-		\caption{Noise factor = 10}\label{fig:1c}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+    \includegraphics{graph/noise_010_derivative.pdf}
+		\caption{Noise factor = \num{10}}\label{fig:1d}
 	\end{subfigure}\hfill
-	\begin{subfigure}[b]{.5\textwidth}
-		\centering\includegraphics[width=\textwidth]{differentialfigure_10.pdf}
-		\caption{Noise factor = 10}\label{fig:1d}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+    \includegraphics{graph/noise_100_model.pdf}
+		\caption{Noise factor = \num{100}}\label{fig:1e}
 	\end{subfigure}\hfill
-	\begin{subfigure}[b]{.5\textwidth}
-		\centering\includegraphics[width=\textwidth]{modelfigure_100.pdf}
-		\caption{Noise factor = 100}\label{fig:1e}
-	\end{subfigure}\hfill
-	\begin{subfigure}[b]{.5\textwidth}
-		\centering\includegraphics[width=\textwidth]{differentialfigure_100.pdf}
-		\caption{Noise factor = 100}\label{fig:1f}
+	\begin{subfigure}[b]{0.5\textwidth}
+		\centering
+    \includegraphics{graph/noise_100_derivative.pdf}
+		\caption{Noise factor = \num{100}}\label{fig:1f}
 	\end{subfigure}
-	\caption[Short caption which will be in the table of figures]{Example of a figure that contains multiple subfigures.  For more options on using subfigures and more complicated subcaptions, see the package documentation at \url{https://gitlab.com/axelsommerfeldt/caption} To update this figure, run samplefigure.py and recompile the document.}
+	\caption[Short caption which will be in the table of figures]{Example of a figure that contains multiple subfigures.  To update this figure, run samplefigure.py and recompile the document.}
 	\label{fig:subcaptionfigure}
 \end{figure}
 
+For more options on using subfigures and more complicated subcaptions, see the package documentation at \url{https://gitlab.com/axelsommerfeldt/caption} 
 
-
-
+\subsection{Numbers and units}
 Numbers are shown with a decimal point, spaces between thousands and $\times 10^x$ notation rather than computer notation (\num{12345.12345e-12}).
 
 SI units should be favoured except where conversion would be
 uncomfortable (refer to a \SI{20}{psi} pressure limit rather than
 \SI{137.895}{\kilo\pascal}).
-Use standard
-SI prefixes instead of scientific notation unless a large variation in
+
+Use standard SI prefixes instead of scientific notation unless a large variation in
 numbers occurs (use \SI{1}{\nano\meter} instead of \SI{1e-9}{\meter}).
 
 \section{Conclusions and Recommendations}
 Main findings
 No new information
 
-
 \printbibliography
 \appendix
 \renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
 \renewcommand{\thepage}{\thesection.\arabic{page}}
+
 \section{First appendix}
 \setcounter{figure}{0}
+\setcounter{table}{0}
 \setcounter{page}{1}
 % Renew figure and page counter per Appendix using the commands above
 Include only if necessary. Not a place to dump raw figures or calculations
