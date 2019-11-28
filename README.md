@@ -2,7 +2,8 @@
 
 ## Quickstart on Overleaf
 
-Download the latest release from "Releases". This .zip file can be uploaded directly to [Overleaf](overleaf.com) and should compile with no further work.
+Download the latest release from [Releases](https://github.com/ChemEngUP/ce-up-latex-templates/releases). This .zip file can be uploaded directly to [Overleaf](https://overleaf.com) and should compile with no further work.
+
 
 ## To compile the document locally
 
