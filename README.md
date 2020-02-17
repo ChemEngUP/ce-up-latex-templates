@@ -21,6 +21,7 @@ If this raises the error that the 'perl.exe' could not be found, you might need 
 Download and install [Strawberry Perl](http://strawberryperl.com/).
 After closing the installer window, open file explorer. Here right click on 'This PC' and select Properties. Click on 'Advanced system settings'. Go to the Advanced tab and click the Environment variables button at the bottom of the window. 
 Here you will find a list of Variables. If 'Path' is not listed create a new variable with name Path and value C:\strawberry\perl\bin. If Path is already listed, select it-->Edit-->New and use the same value as before.
+Restart your computer.
 The latex files should now compile.
 
 ## To compile the document locally
