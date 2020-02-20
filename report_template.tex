@@ -16,9 +16,9 @@
 \subject{CXX XXX}
 \date{\today}
 
-%Nomenclature unit command
+% Nomenclature unit command - see the documentation for nomencl
 \newcommand{\nomunit}[1]{%
-\renewcommand{\nomentryend}{\hspace*{\fill}#1}}
+\renewcommand{\nomentryend}{\hspace*{\fill}\si{#1}}}
 
 % Create a custom user command or run the following 
 %  makeindex %.nlo -s nomencl.ist -o %.nls
@@ -34,7 +34,7 @@ Background, problem statement, purpose, method, scope
 \section{Theory}
 Summary of the relevant theory, including ample references. You can refer to citations like~\textcite{bruckmanmandersloot} for an inline reference or \parencite{bruckmanmandersloot} to get the citation in parentheses. You can also cite multiple authors~\parencite{mandersloot,bruckmanmandersloot}
 
-The height $h$ \nomenclature{h}{Height \nomunit{m}} was measured as a function of time $t$ \nomenclature{t}{time \nomunit{s}}.  The relationship between $h$ and $t$ was found to be 
+The height $h$ \nomenclature{h}{Height\nomunit{m}} was measured as a function of time $t$ \nomenclature{t}{Time\nomunit{s}}.  The relationship between $h$ and $t$ was found to be 
 \begin{equation}
   \label{eq:commaexample}
   h(t) = h_0 - \lambda t
