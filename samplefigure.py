@@ -71,7 +71,7 @@ def plotfigure(noise_factor, figsize, output, filename, kind="model", legend=Tru
         samplefigure(x, ys, figsize, "Height / m", legend)
     elif kind == "derivative":
         diffys = [numpy.gradient(y, x) for y in ys]
-        samplefigure(x, diffys, figsize, r"Velocity / m$\cdot$s$^{-1}$", legend)
+        samplefigure(x, diffys, figsize, r"Velocity / m\,s$^{-1}$", legend)
 
     plt.savefig(output / filename.format(kind=kind, noise_factor=noise_factor))
 
