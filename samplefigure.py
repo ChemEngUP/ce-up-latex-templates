@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy
+import pathlib
 
 # For more detail about using LaTeX in matplotlib see
 # https://matplotlib.org/users/usetex.html
@@ -17,6 +18,8 @@ HALFSIZE = 3, 3 * aspect_ratio
 # Names and line types for the different plot series
 YNAMES = "Model A", "Model B", "Experimental"
 LINETYPES = "k-", "k--", "b."
+
+OUTPUT = pathlib.Path("graph")
 
 
 def generate_data(noise_factor):
@@ -61,30 +64,41 @@ def samplefigure(x, ys, figsize, ylabel, legend=True):
     plt.tight_layout()
 
 
-def plotfigure(noise_factor, figsize, filename, diff=False, legend=True):
+def plotfigure(noise_factor, figsize, output, filename, kind="model", legend=True):
     x, ys = generate_data(noise_factor)
 
-    samplefigure(x, ys, figsize, "Height / m", legend)
-    plt.savefig(filename.format(diff="model", noise_factor=noise_factor))
-
-    if diff:
+    if kind == "model":
+        samplefigure(x, ys, figsize, "Height / m", legend)
+    elif kind == "derivative":
         diffys = [numpy.gradient(y, x) for y in ys]
         samplefigure(x, diffys, figsize, r"Velocity / m$\cdot$s$^{-1}$", legend)
-        plt.savefig(filename.format(diff="derivative", noise_factor=noise_factor))
+
+    plt.savefig(output / filename.format(kind=kind, noise_factor=noise_factor))
 
 
-plotfigure(noise_factor=10, figsize=FULLSIZE, filename="graph/samplefigure.pdf")
-plotfigure(noise_factor=10, figsize=HALFSIZE, filename="graph/samplefigure_halfsize.pdf")
+OUTPUT.mkdir(exist_ok=True)
+
+plotfigure(
+    noise_factor=10, figsize=FULLSIZE, output=OUTPUT, filename="samplefigure.pdf"
+)
+plotfigure(
+    noise_factor=10,
+    figsize=HALFSIZE,
+    output=OUTPUT,
+    filename="samplefigure_halfsize.pdf",
+)
 
 # Lets investigate the effect of noise on our Model "A" and its derivative
 # For-loop structures are very useful for this type of sensitivty analysis
 # However, we can create a function to do most of this for us with ease
 
 for noise_factor in [1, 10, 100]:
-    plotfigure(
-        noise_factor,
-        figsize=HALFSIZE,
-        filename="graph/noise_{noise_factor:03.0f}_{diff}.pdf",
-        diff=True,
-        legend=False,
-    )
+    for kind in ["model", "derivative"]:
+        plotfigure(
+            noise_factor,
+            figsize=HALFSIZE,
+            output=OUTPUT,
+            filename="noise_{noise_factor:03.0f}_{kind}.pdf",
+            kind=kind,
+            legend=False,
+        )
