@@ -26,7 +26,14 @@ The latex files should now compile.
 
 ## To compile the document locally
 
-To compile the report template document you need to run `samplefigure.py` to create the `samplefigure.pdf` file.
+### First run after cloning the repository
+
+To compile the report template document you need to run `samplefigure.py` to 
+create the `graph` directory containing all the sample figures.
+
+    python samplefigure.py
+
+### Commandline compile
 
 A full compile of the sample document involves running
 
@@ -38,6 +45,6 @@ A full compile of the sample document involves running
     
 The multiple runs of `pdflatex` is so that the page numbers and cross-references are handled correctly.
 
-You can also automate these tasks using [arara](https://github.com/cereda/arara) or `latexmk`. Use the tool which is already installed in your system.
+You can also automate these tasks using [arara](https://github.com/cereda/arara) or `latexmk`. Use the tool which is already installed on your system.
 
 Always ensure that you are using the most recent version by downloading from [GitHub](https://github.com/ChemEngUP/ce-up-latex-templates/)
