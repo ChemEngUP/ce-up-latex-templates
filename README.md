@@ -37,11 +37,11 @@ create the `graph` directory containing all the sample figures.
 
 A full compile of the sample document involves running
 
-    pdflatex report_template
-    biber report_template
-    makeindex report_template.nlo -s nomencl.ist -o report_template.nls
-    pdflatex report_template
-    pdflatex report_template
+    pdflatex main
+    biber main
+    makeindex main.nlo -s nomencl.ist -o main.nls
+    pdflatex main
+    pdflatex main
     
 The multiple runs of `pdflatex` is so that the page numbers and cross-references are handled correctly.
 
